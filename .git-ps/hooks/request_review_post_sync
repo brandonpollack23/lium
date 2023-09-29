@@ -22,8 +22,15 @@ branch_to_integrate_into=$3 # string of the branch name to integrate into (e.g. 
 remote_name=$4 # string of the remote name (e.g. origin)
 remote_url=$5 # string of the remote url
 
+echo "HUMPH ARGS: $1"
+echo "HUMPH ARGS: $2"
+echo "HUMPH ARGS: $3"
+echo "HUMPH ARGS: $4"
+echo "HUMPH ARGS: $5"
+
 if [ "$re_requesting_review" != "true" ]; then
-	gh pr create --fill --base "$branch_to_integrate_into" --head "$branch_to_integrate" -R "$remote_url"
+	#gh pr create --fill --base "$branch_to_integrate_into" --head "$branch_to_integrate" -R google/lium
+	gh pr create --fill --base "$branch_to_integrate_into" --head "$branch_to_integrate" -R $remote_url
 fi
 
 # Note: In the case where $re_requesting_review is true we don't want to do
